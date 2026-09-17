@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VideoBelajar - Platform Belajar Online Terdepan</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"
+        onload="window.lucideLoaded=true; if(window.initLucide) window.initLucide();"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap" rel="stylesheet">
+    <script>
+        window.initLucide = function () { if (window.lucide) lucide.createIcons(); };
+        document.addEventListener('DOMContentLoaded', function () { if (window.lucideLoaded) window.initLucide(); });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://unpkg.com/typeit@8.8.0/dist/index.umd.js"></script>
+
+    <style type="text/tailwindcss">
+        :root {
+            --primary: #ff6016;
+            --primary-hover: #e04d07;
+            --foreground: #080C1A;
+            --secondary: #6A7686;
+            --muted: #EFF2F7;
+            --border: #F3F4F3;
+            --card-grey: #F1F3F6;
+            --card-message: #C9E6FC;
+            --success: #30B22D;
+            --success-light: #DCFCE7;
+            --error: #ED6B60;
+            --warning: #FED71F;
+            --font-sans: 'Lexend Deca', sans-serif;
+        }
+        @theme inline {
+            --color-primary: var(--primary);
+            --color-primary-hover: var(--primary-hover);
+            --color-foreground: var(--foreground);
+            --color-secondary: var(--secondary);
+            --color-muted: var(--muted);
+            --color-border: var(--border);
+            --color-card-grey: var(--card-grey);
+            --color-card-message: var(--card-message);
+            --color-success: var(--success);
+            --color-success-light: var(--success-light);
+            --color-error: var(--error);
+            --color-warning: var(--warning);
+            --font-sans: var(--font-sans);
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans bg-slate-50/50 text-foreground antialiased selection:bg-primary/20 selection:text-primary min-h-screen flex flex-col justify-between">
+    <!-- Navbar -->
+    <header class="sticky top-12 z-50 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <nav
+            class="flex backdrop-blur-md bg-white/80 shadow-sm justify-between items-center p-3 sm:p-4 sticky top-4 z-50 ring-1 ring-border rounded-2xl md:rounded-full">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div
+                    class="w-10 h-10 sm:w-12 sm:h-12 bg-primary rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20">
+                    <i data-lucide="graduation-cap" class="w-5 h-5 sm:w-6 sm:h-6 text-white"></i>
+                </div>
+                <span class="font-bold text-xl sm:text-2xl tracking-tight">VideoBelajar</span>
+            </div>
+
+            <!-- Nav Kanan -->
+            <div class="flex items-center gap-2 pl-2 sm:pl-4">
+                <p class="font-semibold text-sm hidden md:block">username</p>
+                <div
+                    class="w-9 h-9 sm:w-10 sm:h-10 bg-secondary/80 rounded-xl flex items-center justify-center cursor-pointer hover:bg-secondary transition-colors">
+                    <i data-lucide="user" class="w-5 h-5 text-white"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow">
+        <!-- Hero Section dengan Background Gambar Full Width (Edge-to-Edge) -->
+        <img src="/assets/images/hero-image-1.png" class="absolute inset-0 w-full h-full object-cover object-center z-0"
+            alt="Hero Background VideoBelajar">
+        <section
+            class="relative w-full min-h-[480px] sm:min-h-[580px] md:min-h-[660px] lg:min-h-[720px] flex items-center overflow-hidden border-b border-border">
+            <!-- Background Image Full Screen Width -->
+
+            <!-- Gradient Overlay untuk Keterbacaan Teks -->
+            <!-- <div class="absolute inset-0 bg-gradient-to-r from-black/10 via-black/5 to-black/0 z-10"></div> -->
+
+            <!-- Content Container (Di dalam max-w-7xl agar Sejajar dengan Navbar) -->
+            <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 md:py-24 w-full">
+                <div class="max-w-2xl text-white space-y-6">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-white text-xs sm:text-sm font-semibold tracking-wide border border-white/20">
+                        <i data-lucide="sparkles" class="w-4 h-4 text-primary"></i>
+                        <span>Platform Pembelajaran Digital No. 1</span>
+                    </div>
+
+                    <!-- Typing Headline -->
+                    <h1
+                        class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight min-h-[110px] sm:min-h-[140px] text-black">
+                        <span id="hero-typing"></span><br>
+                        di <i class="text-primary font-extrabold not-italic">VideoBelajar</i>
+                    </h1>
+
+                    <!-- Subtitle -->
+                    <p class="text-sm sm:text-base md:text-lg text-neutral-500 max-w-lg">
+                        Tingkatkan keahlianmu bersama instruktur berpengalaman. Akses ratusan materi interaktif kapan
+                        saja dan di mana saja.
+                    </p>
+
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
+                        <button onclick="filterCoursesFromOutside('all')"
+                            class="bg-primary hover:bg-primary-hover text-white px-8 sm:px-10 py-4 rounded-4xl font-bold shadow-xl transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer text-center">
+                            mulai belajar
+                        </button>
+                        <button onclick="filterCoursesFromOutside('all')"
+                            class="border-2 border-primary text-primary hover:bg-neutral-100 px-8 sm:px-10 py-4 rounded-4xl font-bold transition-all transform hover:-translate-y-0.5 shadow-sm cursor-pointer text-center backdrop-blur-sm">
+                            lihat kursus
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Kategori -->
+        <section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-foreground">Kategori Populer</h2>
+                    <p class="text-secondary text-sm sm:text-base mt-1">Jelajahi kategori sesuai minat dan tujuan
+                        kariermu</p>
+                </div>
+                <a href="#" class="text-primary font-semibold text-sm hover:underline flex items-center gap-1">
+                    <span>Lihat Semua</span>
+                    <i data-lucide="chevron-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+                <!-- Card Kategori 1 -->
+                <div onclick="filterCoursesFromOutside('programming')"
+                    class="bg-white p-5 rounded-2xl border border-border hover:border-primary/40 hover:shadow-md transition-all cursor-pointer group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-orange-100 text-primary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="code" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-foreground group-hover:text-primary transition-colors">Pemrograman</h3>
+                    <p class="text-xs text-secondary mt-1">120+ Kursus</p>
+                </div>
+                <!-- Card Kategori 2 -->
+                <div onclick="filterCoursesFromOutside('desain')"
+                    class="bg-white p-5 rounded-2xl border border-border hover:border-primary/40 hover:shadow-md transition-all cursor-pointer group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="layout" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-foreground group-hover:text-primary transition-colors">UI/UX Design</h3>
+                    <p class="text-xs text-secondary mt-1">85+ Kursus</p>
+                </div>
+                <!-- Card Kategori 3 -->
+                <div onclick="filterCoursesFromOutside('marketing')"
+                    class="bg-white p-5 rounded-2xl border border-border hover:border-primary/40 hover:shadow-md transition-all cursor-pointer group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-foreground group-hover:text-primary transition-colors">Pemasaran Digital
+                    </h3>
+                    <p class="text-xs text-secondary mt-1">95+ Kursus</p>
+                </div>
+                <!-- Card Kategori 4 -->
+                <div onclick="filterCoursesFromOutside('bisnis')"
+                    class="bg-white p-5 rounded-2xl border border-border hover:border-primary/40 hover:shadow-md transition-all cursor-pointer group">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <i data-lucide="briefcase" class="w-6 h-6"></i>
+                    </div>
+                    <h3 class="font-bold text-foreground group-hover:text-primary transition-colors">Bisnis & Manajemen
+                    </h3>
+                    <p class="text-xs text-secondary mt-1">110+ Kursus</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Rekomendasi -->
+        <section class="section-rekomendasi py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div class="mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-foreground">Rekomendasi Kursus Terbaik</h2>
+                <p class="text-secondary text-sm sm:text-base mt-1">Pilihan materi terfavorit yang dipelajari ribuan
+                    siswa</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Course Card 1 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Course Thumbnail"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best
+                                Seller</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Pengembangan
+                                    Web</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Mastering Full-Stack Web Development dari Nol hingga Mahir</h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">Pelajari HTML, CSS, JavaScript, Node.js,
+                                hingga deployment ke cloud server secara terstruktur.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 750.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 299.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course Card 2 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="Course Thumbnail"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">Baru</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Desain
+                                    Grafis</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                UI/UX Design Masterclass: Membangun Aplikasi User Friendly</h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">Kuasai Figma, design system,
+                                prototyping, dan wireframing untuk karier UI/UX Designer professional.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 600.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 249.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Course Card 3 -->
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Course Thumbnail"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Populer</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Digital
+                                    Marketing</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 5.0</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Strategi Pemasaran Digital & Social Media Ads 2026</h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">Tingkatkan konversi bisnis dengan
+                                strategi iklan Facebook, Instagram, Google Ads, dan TikTok Ads.</p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 800.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 349.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="daftar-kursus" class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto scroll-mt-24">
+            <div class="mb-8">
+                <h2 class="text-2xl sm:text-3xl font-bold text-foreground">Pilih Kursus yang Kamu Mau</h2>
+                <p class="text-secondary text-sm sm:text-base mt-1">Semua kursus merupakan kurikulum terbaik yang
+                    disusun oleh praktisi industri</p>
+            </div>
+
+            <div class="flex items-center gap-4 sm:gap-8 mb-8 overflow-x-auto pb-2 border-b border-border/80 scrollbar-none"
+                id="course-filter-tabs">
+                <button type="button" data-category="all"
+                    class="filter-tab pb-3 text-sm sm:text-base font-semibold text-primary border-b-2 border-primary cursor-pointer transition-all duration-200 whitespace-nowrap">
+                    Semua Kelas
+                </button>
+                <button type="button" data-category="desain"
+                    class="filter-tab pb-3 text-sm sm:text-base font-medium text-secondary hover:text-foreground border-b-2 border-transparent cursor-pointer transition-all duration-200 whitespace-nowrap">
+                    Desain
+                </button>
+                <button type="button" data-category="programming"
+                    class="filter-tab pb-3 text-sm sm:text-base font-medium text-secondary hover:text-foreground border-b-2 border-transparent cursor-pointer transition-all duration-200 whitespace-nowrap">
+                    Programming
+                </button>
+                <button type="button" data-category="bisnis"
+                    class="filter-tab pb-3 text-sm sm:text-base font-medium text-secondary hover:text-foreground border-b-2 border-transparent cursor-pointer transition-all duration-200 whitespace-nowrap">
+                    Bisnis
+                </button>
+                <button type="button" data-category="marketing"
+                    class="filter-tab pb-3 text-sm sm:text-base font-medium text-secondary hover:text-foreground border-b-2 border-transparent cursor-pointer transition-all duration-200 whitespace-nowrap">
+                    Marketing
+                </button>
+            </div>
+
+            <div id="course-cards-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="programming">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Full-Stack Web Development"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best
+                                Seller</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Programming</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Mastering Full-Stack Web Development dari Nol hingga Mahir
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Pelajari HTML, CSS, JavaScript, React, Node.js, hingga deployment ke cloud server secara
+                                komprehensif.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 750.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 299.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="programming">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="Python Data Science"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Populer</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Programming</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Python Dasar untuk Data Science & Machine Learning
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Kuasai pemrograman Python modern, analisis data dengan Pandas & NumPy, serta visualisasi
+                                data interaktif.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 650.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 279.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="programming">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Mobile App Flutter"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">Baru</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Programming</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Membangun Aplikasi Android & iOS Multiplatform dengan Flutter
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Ciptakan aplikasi mobile modern, cepat, dan responsif dengan satu basis kode Dart dan
+                                integrasi REST API.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 700.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 319.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="desain">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="UI/UX Design Masterclass"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best
+                                Seller</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Desain</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                UI/UX Design Masterclass: Membangun Aplikasi User Friendly
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Kuasai Figma, design system, prototyping interaktif, dan user research untuk karier
+                                Product Designer.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 600.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 249.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="desain">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Graphic Design Fundamental"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Populer</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Desain</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Desain Grafis Fundamental: Mahir Illustrator & Photoshop
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Pelajari teori warna, tipografi, logo vector design, dan aset branding komersial dari
+                                tingkat pemula.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 550.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 229.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="desain">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="3D Modeling & Motion Graphic"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">Baru</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Desain</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.7</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                3D Modeling & Motion Graphics untuk Pemula dengan Blender
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Ciptakan visual 3D memukau, teknik lighting sinematik, tekstur realistis, dan animasi
+                                grafis promosi.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 680.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 289.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="bisnis">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Strategi Manajemen Bisnis"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best
+                                Seller</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Bisnis</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Strategi Manajemen Bisnis & Skalabilitas Startup Digital
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Pelajari validasi model bisnis, analisis kompetitor, lean operations, dan persiapan
+                                pitching ke investor.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 850.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 349.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="bisnis">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="Financial Management UMKM"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Populer</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Bisnis</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Financial Planning & Manajemen Arus Kas untuk Bisnis & UMKM
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Atur cash flow bisnis, susun laporan laba rugi, hitung break-even point, dan strategi
+                                alokasi modal kerja.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 650.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 269.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="bisnis">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="Product Management"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">Baru</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Bisnis</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Product Management: Dari Riset Pasar hingga Peluncuran Produk
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Kuasai pembuatan product roadmap, analisis metrik KPI produk, Agile Scrum framework, dan
+                                kolaborasi tim.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 720.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 299.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="marketing">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="Digital Marketing & Ads"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Best
+                                Seller</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Marketing</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 5.0</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Strategi Pemasaran Digital & Social Media Ads 2026
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Tingkatkan penjualan dengan strategi iklan terukur pada Meta Ads (FB/IG), TikTok Ads,
+                                dan Google Ads.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 800.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 349.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="marketing">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image.png" alt="SEO Mastery"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">Populer</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Marketing</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.8</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Search Engine Optimization (SEO) & Organik Traffic Mastery
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Optimasi riset kata kunci, on-page & off-page SEO, serta strategi teknikal untuk merajai
+                                halaman 1 Google.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 600.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 249.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+
+                <div class="course-card bg-white rounded-2xl overflow-hidden border border-border shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col justify-between"
+                    data-category="marketing">
+                    <div>
+                        <div class="relative overflow-hidden aspect-video">
+                            <img src="/assets/images/hero-image-1.png" alt="Copywriting & Content Strategy"
+                                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <span
+                                class="absolute top-3 left-3 bg-emerald-500 text-white text-xs font-bold px-3 py-1 rounded-full">Baru</span>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex items-center gap-2 text-xs text-secondary mb-2">
+                                <span
+                                    class="bg-muted px-2.5 py-1 rounded-md text-foreground font-medium">Marketing</span>
+                                <span>•</span>
+                                <span class="flex items-center gap-1 text-amber-500 font-semibold"><i data-lucide="star"
+                                        class="w-3.5 h-3.5 fill-amber-500"></i> 4.9</span>
+                            </div>
+                            <h3
+                                class="font-bold text-lg text-foreground group-hover:text-primary transition-colors line-clamp-2">
+                                Copywriting & Content Marketing Berdampak Tinggi untuk Penjualan
+                            </h3>
+                            <p class="text-xs text-secondary mt-2 line-clamp-2">
+                                Seni merangkai kata persuasif, formula headline hipnotik, content calendar, dan
+                                storytelling brand yang menjual.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-5 pt-0 border-t border-border/60 mt-4 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-secondary block line-through">Rp 580.000</span>
+                            <span class="text-lg font-bold text-primary">Rp 239.000</span>
+                        </div>
+                        <button
+                            class="bg-primary/10 hover:bg-primary hover:text-white text-primary px-4 py-2 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                            Daftar Sekarang
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="cta py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+            <div
+                class="bg-gradient-to-r from-primary to-orange-600 rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="max-w-2xl relative z-10 text-center md:text-left">
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight">Siap Memulai Perjalanan
+                        Belajarmu?</h2>
+                    <p class="text-white/90 text-sm sm:text-base mt-3">Dapatkan akses tak terbatas ke ratusan kursus
+                        berkualitas tinggi dan tingkatkan skil bermakna sekarang juga.</p>
+                </div>
+                <div class="relative z-10 w-full md:w-auto flex justify-center">
+                    <button
+                        class="bg-white text-primary hover:bg-orange-50 font-bold px-8 py-4 rounded-2xl shadow-xl transition-all transform hover:-translate-y-0.5 cursor-pointer whitespace-nowrap">
+                        Daftar Gratis Sekarang
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-border mt-12 py-8">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs sm:text-sm text-secondary">
+            <div class="flex items-center gap-2">
+                <div class="w-7 h-7 bg-primary rounded-lg flex items-center justify-center">
+                    <i data-lucide="graduation-cap" class="w-4 h-4 text-white"></i>
+                </div>
+                <span class="font-bold text-foreground">VideoBelajar</span>
+                <span>&copy; 2026. Hak Cipta Dilindungi.</span>
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#" class="hover:text-primary transition-colors">Syarat & Ketentuan</a>
+                <a href="#" class="hover:text-primary transition-colors">Kebijakan Privasi</a>
+                <a href="#" class="hover:text-primary transition-colors">Bantuan</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script>
+
+        function setCourseFilter(category) {
+            const filterTabs = document.querySelectorAll('#course-filter-tabs .filter-tab');
+
+            const courseCards = document.querySelectorAll('.course-card');
+
+            filterTabs.forEach(tab => {
+                const isMatch = tab.getAttribute('data-category') === category;
+                if (isMatch) {
+                    tab.classList.remove('text-secondary', 'font-medium', 'border-transparent');
+                    tab.classList.add('text-primary', 'font-semibold', 'border-primary');
+                } else {
+                    tab.classList.remove('text-primary', 'font-semibold', 'border-primary');
+                    tab.classList.add('text-secondary', 'font-medium', 'border-transparent');
+                }
+            });
+
+            courseCards.forEach(card => {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory === category) {
+                    card.classList.remove('hidden');
+                    card.classList.add('flex');
+                } else {
+                    card.classList.add('hidden');
+                    card.classList.remove('flex');
+                }
+            });
+
+            if (window.lucide) {
+                lucide.createIcons();
+            }
+        }
+
+        function filterCoursesFromOutside(category) {
+            setCourseFilter(category);
+            const targetSection = document.getElementById('daftar-kursus');
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const tabs = document.querySelectorAll('#course-filter-tabs .filter-tab');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function () {
+                    const category = this.getAttribute('data-category');
+                    setCourseFilter(category);
+                });
+            });
+
+            if (typeof TypeIt !== "undefined") {
+                new TypeIt("#hero-typing", {
+                    speed: 80,
+                    deleteSpeed: 50,
+                    waitUntilVisible: true,
+                    loop: true
+                })
+                    .type("kamu akan belajar ")
+                    .type('<span class="text-primary font-extrabold">dimana aja</span>')
+                    .pause(1500)
+                    .delete(10)
+                    .type('<span class="text-primary font-extrabold">kapan aja</span>')
+                    .pause(1500)
+                    .delete(9)
+                    .type('<span class="text-primary font-extrabold">menyenangkan</span>')
+                    .pause(1500)
+                    .delete(12)
+                    .go();
+            }
+        });
+    </script>
+</body>
+
+</html>
